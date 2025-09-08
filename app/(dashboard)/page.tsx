@@ -1,16 +1,16 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <main className="">
-      <div className="">
-
-        {/* When user is NOT signed in */}
-        <SignedOut>
-          <div className=" min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-8  max-w-md w-full space-y-8 text-center">
+    <>
+      {/* When user is NOT signed in */}
+      <SignedOut>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-8">
+          <div className="max-w-md w-full space-y-8 text-center">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-gray-900">
                 Welcome Back
@@ -29,34 +29,22 @@ export default function Home() {
               </Button>
             </SignInButton>
           </div>
-        </SignedOut>
+        </div>
+      </SignedOut>
 
-        {/* When user IS signed in */}
-        <SignedIn>
-          <DashboardPage />
-
-
-        </SignedIn>
-
-
-      </div>
-    </main>
+      {/* When user IS signed in */}
+      <SignedIn>
+        <DashboardPage />
+      </SignedIn>
+    </>
   );
 }
+
 function DashboardPage() {
   return (
-    <div>
-      Dashboard Root page
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+      <p className="text-gray-600 mt-2">Welcome to your dashboard!</p>
     </div>
   );
 }
-
-
-// import { Button } from "@/components/ui/button";
-// export default function Home() {
-//   return (
-//     <>
-//       <Button>Click me!!</Button>
-//     </>
-//   )
-// }
