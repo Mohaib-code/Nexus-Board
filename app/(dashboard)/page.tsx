@@ -5,12 +5,12 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-8">
-      <div className="max-w-md w-full space-y-8 text-center">
+    <main className="">
+      <div className="">
 
         {/* When user is NOT signed in */}
         <SignedOut>
-          <div className="space-y-6">
+          <div className=" min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 p-8  max-w-md w-full space-y-8 text-center">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-gray-900">
                 Welcome Back
@@ -33,34 +33,21 @@ export default function Home() {
 
         {/* When user IS signed in */}
         <SignedIn>
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold text-gray-900">
-                Dashboard
-              </h1>
-              <p className="text-gray-600">
-                Welcome to your account
-              </p>
-            </div>
+          <DashboardPage />
 
-            <div className="flex flex-col items-center space-y-4">
-              <UserButton
-                afterSignOutUrl="/"
-                appearance={{
-                  elements: {
-                    avatarBox: "w-12 h-12"
-                  }
-                }}
-              />
 
-              <Button variant="outline" className="w-full">
-                Go to Dashboard
-              </Button>
-            </div>
-          </div>
         </SignedIn>
+
+
       </div>
     </main>
+  );
+}
+function DashboardPage() {
+  return (
+    <div>
+      Dashboard Root page
+    </div>
   );
 }
 
